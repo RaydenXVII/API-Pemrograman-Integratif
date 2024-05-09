@@ -4,8 +4,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\CustomersController;
 use App\Http\Controllers\EmployeesController;
 use App\Http\Controllers\CollectionController;
 use App\Http\Controllers\OrderDetailsController;
@@ -39,6 +41,8 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('orderdetails', OrderDetailsController::class);
     Route::resource('payments', PaymentsController::class);
     Route::resource('products', ProductsController::class);
+    Route::resource('orders', OrdersController::class);
+    Route::resource('customer', CustomersController::class);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

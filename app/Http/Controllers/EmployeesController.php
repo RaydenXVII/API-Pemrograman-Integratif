@@ -35,9 +35,11 @@ class EmployeesController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $employees = Employees::create($input);
+        DB::table('employees')->insert($input);
 
-        return $this->sendResponse(EmployeesResource::collection($employees), 'Post Created');
+        $employees = DB::table('employees')->where('employeeNumber', $input['employeeNumber'])->first();
+
+        return $this->sendResponse(new EmployeesResource($employees), 'Post Created.');
     }
 
     public function show($employeeNumber)
@@ -67,17 +69,39 @@ class EmployeesController extends BaseController
             return $this->sendError('Validation Error.', $validator->errors());
         }
 
-        $employees = Employees::find($employeeNumber);
-        $employees->update($input);
+        $existingEmployees = DB::table('employees')
+            ->where('employeeNumber', $employeeNumber)
+            ->first();
 
-        return $this->sendResponse(EmployeesResource::collection($employees), 'Post Updated');
+        if (is_null($existingEmployees)) {
+            return $this->sendError('Employee does not exist.');
+        }
+
+        DB::table('employees')
+            ->where('employeeNumber', $employeeNumber)
+            ->update($input);
+
+        $updatedEmployees = DB::table('employees')
+            ->where('employeeNumber', $input['employeeNumber'])
+            ->first();
+
+        return $this->sendResponse(new EmployeesResource($updatedEmployees), 'Employee updated.');
     }
 
     public function destroy($employeeNumber)
     {
-        $employees = Employees::find($employeeNumber);
-        $employees->delete();
+        $existingEmployees = DB::table('employees')
+            ->where('employeeNumber', $employeeNumber)
+            ->first();
 
-        return $this->sendResponse(EmployeesResource::collection($employees), 'Post Deleted');
+        if (is_null($existingEmployees)) {
+            return $this->sendError('Employee does not exist.');
+        }
+
+        DB::table('employees')
+            ->where('employeeNumber', $employeeNumber)
+            ->delete();
+
+        return $this->sendResponse([], 'Employee deleted.');
     }
 }

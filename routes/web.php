@@ -1,12 +1,14 @@
 <?php
 
-use App\Http\Controllers\AksesEmployeesController;
-use App\Http\Controllers\AksesOrderDetailsController;
-use App\Http\Controllers\AksespaymentsController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ApiController;
-use App\Http\Controllers\AksesProductLinesController;
+use App\Http\Controllers\AksesOrdersController;
+use App\Http\Controllers\AksespaymentsController;
 use App\Http\Controllers\AksesProductsController;
+use App\Http\Controllers\AksesCustomersController;
+use App\Http\Controllers\AksesEmployeesController;
+use App\Http\Controllers\AksesOrderDetailsController;
+use App\Http\Controllers\AksesProductLinesController;
 
 /*
 |--------------------------------------------------------------------------
@@ -50,6 +52,18 @@ Route::get('productGetByID/{key}', [AksesProductsController::class, 'memanggilAp
 Route::get('productPost', [AksesProductsController::class, 'memanggilApiPost']);
 Route::get('productPut/{key}', [AksesProductsController::class, 'memanggilApiPut']);
 Route::get('productDelete/{key}', [AksesProductsController::class, 'memanggilApiDelete']);
+
+Route::get('ordersGetAllData', [AksesOrdersController::class, 'memanggilApiGetAllData']);
+Route::get('orderGetByID/{id}', [AksesOrdersController::class, 'memanggilApiGetByID']);
+Route::get('orderPost', [AksesOrdersController::class, 'memanggilApiPost']);
+Route::get('orderPut/{orderNumber}', [AksesOrdersController::class, 'memanggilApiPut']);
+Route::get('orderDelete/{orderNumber}', [AksesOrdersController::class, 'memanggilApiDelete']);
+
+Route::get('customersGetAllData', [AksesCustomersController::class, 'memanggilApiGetAllData']);
+Route::get('customerGetByID/{customerNumber}', [AksesCustomersController::class, 'memanggilApiGetByID']);
+Route::get('customerPost', [AksesCustomersController::class, 'memanggilApiPost']);
+Route::get('customerPut/{customerNumber}', [AksesCustomersController::class, 'memanggilApiPut']);
+Route::get('customerDelete/{customerNumber}', [AksesCustomersController::class, 'memanggilApiDelete']);
 
 Route::get('/', function () {
     return view('welcome');

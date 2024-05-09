@@ -84,7 +84,7 @@ class OrderdetailsController extends BaseController
             ->where('productCode', $productCode)
             ->first();
 
-        return $this->sendResponse(new OrderdetailsResource($updatedOrderdetails), 'Product line updated.');
+        return $this->sendResponse(new OrderdetailsResource($updatedOrderdetails), 'Order Details updated.');
     }
 
     public function destroy($orderNumber, $productCode)
