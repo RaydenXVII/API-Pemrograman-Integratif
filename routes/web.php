@@ -7,6 +7,7 @@ use App\Http\Controllers\AksespaymentsController;
 use App\Http\Controllers\AksesProductsController;
 use App\Http\Controllers\AksesCustomersController;
 use App\Http\Controllers\AksesEmployeesController;
+use App\Http\Controllers\AksesOfficesController;
 use App\Http\Controllers\AksesOrderDetailsController;
 use App\Http\Controllers\AksesProductLinesController;
 
@@ -64,6 +65,12 @@ Route::get('customerGetByID/{customerNumber}', [AksesCustomersController::class,
 Route::get('customerPost', [AksesCustomersController::class, 'memanggilApiPost']);
 Route::get('customerPut/{customerNumber}', [AksesCustomersController::class, 'memanggilApiPut']);
 Route::get('customerDelete/{customerNumber}', [AksesCustomersController::class, 'memanggilApiDelete']);
+
+Route::get('officesGetAllData', [AksesOfficesController::class, 'memanggilApiGetAllData']);
+Route::get('officeGetByID/{officeCode}', [AksesOfficesController::class, 'memanggilApiGetByID']);
+Route::get('officePost', [AksesOfficesController::class, 'memanggilApiPost']);
+Route::get('officePut/{officeCode}', [AksesOfficesController::class, 'memanggilApiPut']);
+Route::get('officeDelete/{officeCode}', [AksesOfficesController::class, 'memanggilApiDelete']);
 
 Route::get('/', function () {
     return view('welcome');

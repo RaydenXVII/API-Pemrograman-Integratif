@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\OfficesController;
 use App\Http\Controllers\PaymentsController;
 use App\Http\Controllers\ProductsController;
 use App\Http\Controllers\CustomersController;
@@ -43,6 +44,7 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('products', ProductsController::class);
     Route::resource('orders', OrdersController::class);
     Route::resource('customer', CustomersController::class);
+    Route::resource('offices', OfficesController::class);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
