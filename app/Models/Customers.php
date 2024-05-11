@@ -8,10 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Customers extends Model
 {
     use HasFactory;
-    // protected $primaryKey = 'customerNumber';
+    protected $primaryKey = 'customerNumber';
 
     protected $fillable = [
-        'customerNumber',
         'customerName',
         'contactLastName',
         'contactFirstName',

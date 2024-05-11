@@ -23,7 +23,7 @@ class AksespaymentsController extends Controller
         return response()->json($jsonData, $response->getStatusCode());
     }
 
-    public function memanggilApiGetById($id)
+    public function memanggilApiGetById($customerNumber, $checkNumber)
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
 
@@ -31,7 +31,7 @@ class AksespaymentsController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ])
-            ->get('1201220445.test/api/payments/' . $id);
+            ->get('1201220445.test/api/payments/' . $customerNumber . '/' . $checkNumber);
 
         $jsonData = $response->json();
 
@@ -46,7 +46,7 @@ class AksespaymentsController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ])
-            ->get('1201220445.test/api/payments/', $request->all());
+            ->post('1201220445.test/api/payments/', $request->all());
 
         $jsonData = $response->json();
 

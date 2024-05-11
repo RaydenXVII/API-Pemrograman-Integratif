@@ -11,7 +11,6 @@ class Orders extends Model
     protected $primaryKey = 'orderNumber';
 
     protected $fillable = [
-        'orderNumber',
         'orderDate',
         'requiredDate',
         'shippedDate',

@@ -11,7 +11,6 @@ class Offices extends Model
     protected $primaryKey = 'officeCode';
 
     protected $fillable = [
-        'officeCode',
         'city',
         'phone',
         'addressLine1',

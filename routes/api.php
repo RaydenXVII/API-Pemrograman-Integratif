@@ -40,11 +40,17 @@ Route::middleware('auth:sanctum')->group(function () {
     Route::resource('productlines', ProductlinesController::class);
     Route::resource('employees', EmployeesController::class);
     Route::resource('orderdetails', OrderDetailsController::class);
-    Route::resource('payments', PaymentsController::class);
+    Route::put('orderdetails/{orderNumber}/{productCode}', [OrderdetailsController::class, 'update']);
+    Route::delete('orderdetails/{orderNumber}/{productCode}', [OrderdetailsController::class, 'destroy']);
     Route::resource('products', ProductsController::class);
     Route::resource('orders', OrdersController::class);
     Route::resource('customer', CustomersController::class);
     Route::resource('offices', OfficesController::class);
+    Route::get('payments', [PaymentsController::class, 'index']);
+    Route::get('payments/{customerNumber}', [PaymentsController::class, 'show']);
+    Route::post('payments', [PaymentsController::class, 'store']);
+    Route::put('payments/{customerNumber}/{checkNumber}', [PaymentsController::class, 'update']);
+    Route::delete('payments/{customerNumber}/{checkNumber}', [PaymentsController::class, 'destroy']);
 });
 
 Route::middleware('auth:sanctum')->get('/user', function (Request $request) {

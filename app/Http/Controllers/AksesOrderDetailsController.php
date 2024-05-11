@@ -11,7 +11,7 @@ class AksesOrderDetailsController extends Controller
     public function memanggilApiGetAllData()
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
-        
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -46,7 +46,7 @@ class AksesOrderDetailsController extends Controller
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
         ])
-            ->get('1201220445.test/api/orderdetails/', $request->all());
+            ->post('1201220445.test/api/orderdetails/', $request->all());
 
         $jsonData = $response->json();
 

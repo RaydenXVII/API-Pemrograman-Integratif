@@ -39,9 +39,12 @@ class PaymentsController extends BaseController
         return $this->sendResponse(new PaymentResource($payments), 'Post Created.');
     }
 
-    public function show($id)
+    public function show($customerNumber, $checkNumber)
     {
-        $payments = DB::table('payments')->where('customerNumber', $id)->first();
+        $payments = DB::table('payments')
+            ->where('customerNumber', $customerNumber)
+            ->where('checkNumber', $checkNumber)
+            ->first();
 
         if (is_null($payments)) {
             return $this->sendError('Post not found.');
