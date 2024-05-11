@@ -10,6 +10,7 @@ class AksesCustomersController extends Controller
     public function memanggilAPIGetAlldata()
     {
         $token = '2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888';
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -24,6 +25,7 @@ class AksesCustomersController extends Controller
     public function memanggilAPiGetByID($customerNumber)
     {
         $token = '2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888';
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,

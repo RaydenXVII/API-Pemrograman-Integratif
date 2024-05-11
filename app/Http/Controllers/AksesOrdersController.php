@@ -10,6 +10,7 @@ class AksesOrdersController extends Controller
     public function memanggilApiGetAllData()
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -24,6 +25,7 @@ class AksesOrdersController extends Controller
     public function memanggilApiGetById($id)
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -38,6 +40,7 @@ class AksesOrdersController extends Controller
     public function memanggilApiPost(Request $request)
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -52,6 +55,7 @@ class AksesOrdersController extends Controller
     public function memanggilApiPut(Request $request, $orderNumber)
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
+
         $response = Http::withHeaders([
             'accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token
@@ -66,6 +70,7 @@ class AksesOrdersController extends Controller
     public function memanggilApiDelete($orderNumber, $productCode)
     {
         $token = "2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888";
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,

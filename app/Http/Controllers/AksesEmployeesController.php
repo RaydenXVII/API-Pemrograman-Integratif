@@ -11,6 +11,7 @@ class AksesEmployeesController extends Controller
     public function memanggilAPIGetAlldata()
     {
         $token = '2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888';
+
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
@@ -25,6 +26,7 @@ class AksesEmployeesController extends Controller
     public function memanggilAPiGetDataByID($employeeNumber)
     {
         $token = '2|oPHXI4aloqOjTwqI35TTiIelCbYdCumFdRhn9flI90bda888';
+        
         $response = Http::withHeaders([
             'Accept' => 'application/json',
             'Authorization' => 'Bearer ' . $token,
